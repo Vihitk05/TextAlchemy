@@ -8,7 +8,6 @@ import {
   NavbarMenuToggle,
   NavbarItem,
   Link,
-  Button,
 } from "@nextui-org/react";
 // import {AcmeLogo} from "./AcmeLogo.jsx";
 import { LuScrollText } from "react-icons/lu";
@@ -16,7 +15,7 @@ import { LuScrollText } from "react-icons/lu";
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
-  const menuItems = ["Profile", "Dashboard", "Log Out"];
+  const menuItems = ["Text", "PDF"];
 
   return (
     <Navbar onMenuOpenChange={setIsMenuOpen}>
@@ -26,8 +25,8 @@ export default function App() {
           className="sm:hidden"
         />
         <NavbarBrand>
-          <LuScrollText className="text-xl"/>
-          <p className="font-bold text-inherit">TextAlchemy</p>
+          <LuScrollText className="text-xl" />
+          <p className="font-bold text-xl">TextAlchemy</p>
         </NavbarBrand>
       </NavbarContent>
 
@@ -42,33 +41,12 @@ export default function App() {
             Text
           </Link>
         </NavbarItem>
-        <NavbarItem>
-          <Link color="foreground" href="#">
-            URL
-          </Link>
-        </NavbarItem>
-      </NavbarContent>
-      <NavbarContent justify="end">
-        <NavbarItem className="hidden lg:flex">
-          <Link href="#">Login</Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Button as={Link} color="primary" href="#" variant="flat">
-            Sign Up
-          </Button>
-        </NavbarItem>
       </NavbarContent>
       <NavbarMenu>
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
             <Link
-              color={
-                index === 2
-                  ? "primary"
-                  : index === menuItems.length - 1
-                  ? "danger"
-                  : "foreground"
-              }
+              color={"foreground"}
               className="w-full"
               href="#"
               size="lg"

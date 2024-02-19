@@ -17,6 +17,10 @@ function App() {
     setTextareaData(event.target.value);
   };
 
+  const handleSummarizedChange = (event) => {
+    setSummarizedData(event.target.value);
+  };
+
   const copyData = () => {
     setCopyButton(true);
     setTimeout(() => {
@@ -45,8 +49,8 @@ function App() {
       <div className="">
         <Navbar />
       </div>
-      <div className="flex flex-row mt-10 justify-around">
-        <div className="w-[48%] flex justify-center flex-col items-center">
+      <div className="flex main-div flex-row mt-10 justify-around">
+        <div className="w-[48%] inside-divs flex justify-center flex-col items-center">
           <TextArea
             placeholder={"Enter your Text..."}
             label={"Description"}
@@ -60,6 +64,7 @@ function App() {
                   className="mt-10 text-white text-md flex items-center rounded-md"
                   isLoading
                   spinnerPlacement="end"
+                  color="primary"
                 >
                   Summarize
                 </Button>
@@ -68,7 +73,8 @@ function App() {
               <div className="flex gap-4 mb-10 items-center">
                 <Button
                   onClick={sendData}
-                  className="mt-10 text-white text-md flex items-center rounded-md"
+                  className="mt-10 text-white font-bold text-md flex items-center rounded-md"
+                  color="primary"
                 >
                   <p>Summarize</p>
                   <FaArrowCircleRight />
@@ -78,16 +84,20 @@ function App() {
           </div>
         </div>
         <Divider orientation="vertical" />
-        <div className="w-[48%] flex justify-center flex-col items-center">
+        <div className="w-[48%] inside-divs flex justify-center flex-col items-center">
           <TextArea
             placeholder={"You can edit the output here..."}
             label={"Output"}
             value={summarizedData}
+            onChange={handleSummarizedChange}
           />
           <div className="flex justify-end items-end">
             {copyButton === true ? (
               <div className="flex gap-4 mb-10 items-center">
-                <Button className="mt-10 text-white text-md flex items-center rounded-md">
+                <Button
+                  color="primary"
+                  className="mt-10 text-white text-md flex items-center rounded-md"
+                >
                   Copy
                   <MdOutlineDone />
                 </Button>
@@ -98,6 +108,7 @@ function App() {
                   <Button
                     onClick={copyData}
                     className="mt-10 text-white text-md flex items-center rounded-md"
+                    color="primary"
                   >
                     Copy
                     <IoCopy />

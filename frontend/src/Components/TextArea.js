@@ -12,8 +12,8 @@ export default function TextArea({ placeholder, label, onChange, value }) {
       disableAutosize
       value={value}
       classNames={{
-        base: "max-w-lg",
-        input: "resize-y min-h-[40px] h-[400px]",
+        base: "max-w-lg max-h-lg",
+        input: "resize-y min-h-[40px] max-h-[400px] h-[400px]",
         label: "text-xl font-bold",
       }}
     />
